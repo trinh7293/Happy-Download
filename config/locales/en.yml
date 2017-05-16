@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  static_pages:
+    home:
+      title: "Home page"
+      content: "This would be a static home page in a Rails application."
+    about:
+      title: "About page"
+      content: "This is about page"
