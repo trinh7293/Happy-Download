@@ -1,0 +1,5 @@
+$('.ajax-form-create').html('<% j render "feedback_form",
+  feedback: @feedback, button_name: "Create feedback",
+  addfeedback: @addfeedback, product: @product %>');
+
+$('.div-create').html('<% feedbacks = @products.feedbacks.desc %>').appendTo('.div-create')
