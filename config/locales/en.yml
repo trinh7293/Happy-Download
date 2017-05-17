@@ -28,3 +28,11 @@ en:
     about:
       title: "About page"
       content: "This is about page"
+  layouts:
+    header:
+      home: "Home"
+      signup: "Signup"
+      account: "Account"
+      settings: "Settings"
+      log_out: "Log out"
+      login: "Login"
