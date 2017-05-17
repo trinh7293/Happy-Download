@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170517030618) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "link_download"
+    t.integer  "category_id"
     t.string   "link_preview"
     t.text     "title"
     t.text     "summary"
