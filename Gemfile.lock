@@ -202,6 +202,7 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.0.0)
+    ratyrate (1.2.2.alpha)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   rails (~> 5.0.2)
   rails-controller-testing
   rails_best_practices
+  ratyrate
   reek
   rspec-activemodel-mocks
   rspec-collection_matchers

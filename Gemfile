@@ -18,7 +18,7 @@ gem "devise"
 gem "bootstrap-sass", "3.3.6"
 gem "faker", "1.6.6"
 gem "paperclip"
-
+gem "ratyrate"
 group :development, :test do
   gem "byebug", platform: :mri
 end

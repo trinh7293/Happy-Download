@@ -1,0 +1,7 @@
+<%= form_for addfeedback, remote: true do |f| %>
+<div class="field">
+  <%= f.text_area :content, placeholder: "new feedback" %>
+</div>
+  <%= f.hidden_field :product_id, value: product.id %>
+<%= f.submit "post", class: "btn btn-primary" %>
+<% end %>

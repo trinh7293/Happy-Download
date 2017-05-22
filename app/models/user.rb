@@ -10,4 +10,6 @@ class User < ApplicationRecord
     foreign_key: "notifier_id"
   has_many :notifications_as_notifiee, class_name: Notification.name,
     foreign_key: "notifiee_id"
+
+  ratyrate_rater
 end
