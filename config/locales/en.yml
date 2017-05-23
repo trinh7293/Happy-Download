@@ -22,9 +22,6 @@
 en:
   hello: "Hello world"
   static_pages:
-    home:
-      title: "Home page"
-      content: "This would be a static home page in a Rails application."
     about:
       title: "About page"
       content: "This is about page"
@@ -36,3 +33,14 @@ en:
       settings: "Settings"
       log_out: "Log out"
       login: "Login"
+  products:
+    index:
+      title: "Home page"
+      content: "This is homepage."
+      sure: "Are you sure"
+    create:
+      success: "Success!"
+    new:
+      create_product: "Create product"
+    edit:
+      edit_product: "Edit product"

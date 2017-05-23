@@ -1,0 +1,5 @@
+<h1><%= t ".new_product" %></h1>
+<% provide :button_text, t(".create_product") %>
+<%= render "form", product: @product, categories: @categories  %>
+
+<%= link_to t(".back"), products_path %>
