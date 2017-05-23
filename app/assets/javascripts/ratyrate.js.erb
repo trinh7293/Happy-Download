@@ -46,17 +46,17 @@ $(document).bind("turbolinks:load",function(){
           dimension: $(this).attr('data-dimension'),
           id: $(this).attr('data-id'),
           klass: $(this).attr('data-classname')
-       },
+        },
         function(data) {
           if(data) {
             // success code goes here ...
 
             if ($(_this).attr('data-disable-after-rate') == 'true') {
               $(_this).raty('set', {readOnly: true, score: score});
-           }
-         }
-       });
-     }
-   });
- });
+            }
+          }
+        });
+      }
+    });
+  });
 });
