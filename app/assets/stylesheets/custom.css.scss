@@ -5,6 +5,9 @@
 
 $gray-medium-light: #eaeaea;
 $red: #f00;
+$white: #fff;
+$noti-not-read: #e9ebee;
+$noti-not-read-hover: #f6f7f9;
 
 // universal
 
@@ -98,4 +101,29 @@ input {
 // boostrap
 .col-md-3:nth-child(4n+1) {
   clear: left;
+}
+
+//notification
+.dropdown-notification li {
+  border-bottom: 1px solid $gray-light;
+  height: 25px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.notification input {
+  background: $white;
+  border: 0;
+}
+
+.not-read {
+  background-color: $noti-not-read;
+
+  a:hover,
+  a:focus,
+  a:active {
+    background-color: $noti-not-read-hover;
+  }
 }

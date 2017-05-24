@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :order_details, only: [:new, :create]
   end
   resources :feedbacks
-  resources :notifications, only: :update
+  resources :notifications, only: [:show,:index,:update]
 end

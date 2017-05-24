@@ -1,10 +1,19 @@
 class NotificationsController < ApplicationController
-  before_action :find_notification, only: :update
+  before_action :find_notification, only: [:show, :update]
 
-  def update
+  def show
     @noti.read!
     product = Product.find_by id: @noti.notificationable_id
-    redirect_to product
+    respond_to do |format|
+      format.html{redirect_to product}
+    end
+  end
+
+  def index
+    current_user.notifications.map(&:checked!)
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
