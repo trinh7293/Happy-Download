@@ -12,7 +12,10 @@ class FeedbacksController < ApplicationController
   def create
     @product = Product.find_by id: params[:feedback][:product_id]
     @feedback = current_user.feedbacks.build feedback_params
-    @feedback = current_user.feedbacks.new if @feedback.save
+    if @feedback.save
+      create_notification @feedback
+      @feedback = current_user.feedbacks.new
+    end
     respond_to do |format|
       format.html{redirect_to @product}
       format.js
@@ -60,5 +63,11 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit :content, :product_id
+  end
+
+  def create_notification feedback
+    return if feedback.product.user_id == current_user.id
+    feedback.product.notifications.create! user_id: feedback.product.user_id,
+      notified_by_id: feedback.user_id, notice_type: "comment"
   end
 end

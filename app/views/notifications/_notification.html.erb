@@ -1,0 +1,13 @@
+  <%
+  product = Product.find_by(id: notification.notificationable_id);
+  noti = notification.notified_by.name + " has " + notification.notice_type + "ed
+  in your product " + product.title
+  noticlass = "read"
+  noticlass = "not-read" unless notification.read
+  %>
+<li class = "notification <%= noticlass %>">
+  <%= form_for notification, remote: true do |f| %>
+    <%= f.submit noti %>
+  <% end %>
+</li>
+
