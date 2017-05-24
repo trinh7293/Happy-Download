@@ -37,16 +37,19 @@ ActiveRecord::Schema.define(version: 20170526024202) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "notifier_id"
-    t.integer  "notifiee_id"
-    t.integer  "product_id"
-    t.string   "notify_type"
-    t.boolean  "isread"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["notifiee_id"], name: "index_notifications_on_notifiee_id"
-    t.index ["notifier_id"], name: "index_notifications_on_notifier_id"
-    t.index ["product_id"], name: "index_notifications_on_product_id"
+    t.integer  "user_id"
+    t.integer  "notified_by_id"
+    t.integer  "notificationable_id"
+    t.string   "notificationable_type"
+    t.string   "notice_type"
+    t.integer  "read",                  default: 0
+    t.integer  "checked",               default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["notificationable_id", "notificationable_type"], name: "fk_notificationables"
+    t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id"
+    t.index ["read", "checked"], name: "index_notifications_on_read_and_checked"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "order_details", force: :cascade do |t|

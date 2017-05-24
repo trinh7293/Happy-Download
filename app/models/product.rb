@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_details
   has_many :wish_lists, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+  has_many :notifications, as: :notificationable
 
   ratyrate_rateable "quality"
 
