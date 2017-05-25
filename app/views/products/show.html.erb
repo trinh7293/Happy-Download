@@ -8,17 +8,15 @@
   <div class="col-md-6">
     <h3><%= @product.title %></h3>
     <p>
-      <%= t ".quality" %><%= rating_for @product, Settings.rate.quality,
+      <%= t "quality" %><%= rating_for @product, Settings.rate.quality,
         star: Settings.rate.star_number,
         disable_after_rate: false, enable_half: true %></p>
     <p><%= number_to_currency @product.price %></p>
     <p><%= @product.content %></p>
-    <% if user_signed_in? %>
-      <% if user_product %>
-        <p><%= link_to t(".edit_product"), edit_product_path(@product) %></p>
-      <% else %>
-        <p><%= link_to t(".buy_now"), "#" %></p>
-      <% end %>
+    <% if user_product %>
+      <p><%= link_to t("edit"), edit_product_path(@product) %></p>
+    <% else %>
+      <p><%= link_to t("buy_now"), "#" %></p>
     <% end %>
     <table>
       <thead>
@@ -29,23 +27,14 @@
       </thead>
 
       <tbody>
-        <% @product.feedbacks.each do |feedback| %>
-          <tr>
-            <td><%= feedback.user.name %></td>
-            <td><%= feedback.content %></td>
-            <% if user_feedback feedback %>
-            <td><%= link_to t(".delete"), feedback,
-              method: :delete, data: {confirm: t(".sure")} %></td>
-            <% end %>
-          </tr>
-        <% end %>
+        <%=render @product.feedbacks %>
       </tbody>
     </table>
     <section>
       <%= render "feedback_form", addfeedback: @addfeedback,
         product: @product %>
     </section>
-    <%= link_to t(".back"), root_path %>
+    <%= link_to t("back"), root_path %>
     <br>
   </div>
 </div>

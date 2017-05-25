@@ -20,13 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  buy_now: "Buy now"
+  post: "Post"
+  quality: "Quality"
+  back: "Back"
+  sure: "Are you sure"
   hello: "Hello world"
   static_pages:
     about:
       title: "About page"
       content: "This is about page"
     manage_product:
-      sure: "Are you sure"
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
@@ -38,6 +45,7 @@ en:
       settings: "Settings"
       log_out: "Log out"
       login: "Login"
+      manage_products: "Manage Products"
   products:
     index:
       title: "Home page"
@@ -49,3 +57,13 @@ en:
       create_product: "Create product"
     edit:
       edit_product: "Edit product"
+    feedback_form:
+      new_feedback: "New feedback"
+  manage_products:
+    index:
+      new_product: "New product"
+      image: "Image"
+      name: "Name"
+      content: "Content"
+      price: "Price"
+      action: "Action"
