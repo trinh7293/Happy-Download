@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_product, except: [:index, :create, :new]
   before_action :categories, only: [:new, :edit]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: :index
 
   def index
     @products = Product.all
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @addfeedback = current_user.feedbacks.build
   end
 
   def edit

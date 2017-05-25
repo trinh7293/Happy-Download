@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   has_many :wish_lists, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
+  ratyrate_rateable "quality"
+
   has_attached_file :item
   validates_attachment_content_type :item,
     content_type: "application/zip"

@@ -25,6 +25,11 @@ en:
     about:
       title: "About page"
       content: "This is about page"
+    manage_product:
+      sure: "Are you sure"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
   layouts:
     header:
       home: "Home"

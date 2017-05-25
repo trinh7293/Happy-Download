@@ -13,6 +13,10 @@
           <div class="caption">
             <h3><%= product.title %></h3>
             <p><%= number_to_currency product.price %></p>
+            <p>
+              <%= t ".quality" %><%= rating_for product, Settings.rate.quality,
+                star: Settings.rate.star_number,
+                disable_after_rate: false, enable_half: true %></p>
             <p><%= t ".created_by " "#{product.user.name}" %></p>
           </div>
         </div>
