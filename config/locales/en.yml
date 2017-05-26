@@ -23,9 +23,10 @@ en:
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  update: "Update"
   buy_now: "Buy now"
   post: "Post"
-  quality: "Quality"
+  quality: "Quality Rating"
   back: "Back"
   sure: "Are you sure"
   hello: "Hello world"
@@ -33,10 +34,6 @@ en:
     about:
       title: "About page"
       content: "This is about page"
-    manage_product:
-      show: "Show"
-      edit: "Edit"
-      destroy: "Destroy"
   layouts:
     header:
       home: "Home"
@@ -56,6 +53,7 @@ en:
     new:
       create_product: "Create product"
     edit:
+      title: "Edit product"
       edit_product: "Edit product"
     feedback_form:
       new_feedback: "New feedback"
@@ -63,12 +61,18 @@ en:
       product_price: "$"
   manage_products:
     index:
+      title: "My products"
       new_product: "New product"
       image: "Image"
-      name: "Name"
+      name: "Product name"
       content: "Content"
       price: "Price"
       action: "Action"
+  feedbacks:
+    feedback_form:
+      new_feedback: "New feedback"
+    update:
+      feedback_updated_success: "Feedback updated success"
 number:
   currency:
     format:
