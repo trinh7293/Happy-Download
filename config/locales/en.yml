@@ -59,6 +59,8 @@ en:
       edit_product: "Edit product"
     feedback_form:
       new_feedback: "New feedback"
+    show:
+      product_price: "$"
   manage_products:
     index:
       new_product: "New product"
@@ -67,3 +69,8 @@ en:
       content: "Content"
       price: "Price"
       action: "Action"
+number:
+  currency:
+    format:
+      unit: "$"
+      format: "%n%u"

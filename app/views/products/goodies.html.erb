@@ -1,0 +1,20 @@
+<div class="center">
+  <h2><%= t(".goodies") %></h2>
+</div>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center"><%= t(".image")  %></th>
+    <th class="center"><%= t(".title") %></th>
+    <th class="center"><%= t(".link_down") %></th>
+    <th class="center"><%= t(".Buy_from") %></th>
+  </tr>
+  <% @order_details.each do |order_detail| %>
+    <tr>
+      <td><%= image_tag order_detail.product.image_product.url %></td>
+      <td><%= order_detail.product.title %></td>
+      <td><%= link_to t(".download"),
+        asset_url(order_detail.product.item.url) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @order_details %>
