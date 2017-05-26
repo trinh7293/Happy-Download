@@ -2,18 +2,27 @@ class FeedbacksController < ApplicationController
   before_action :find_feedback, except: [:index, :new, :create]
   before_action :authenticate_user!
 
+  def show
+    respond_to do |format|
+      format.html{redirect_to @feedback.product}
+      format.js
+    end
+  end
+
   def create
     @product = Product.find_by id: params[:feedback][:product_id]
     @feedback = current_user.feedbacks.build feedback_params
+    @feedback = current_user.feedbacks.new if @feedback.save
     respond_to do |format|
-      if @feedback.save
-        format.html{redirect_to @product}
-      else
-        format.html{render :new}
-        format.json do
-          render json: @feedback.errors, status: :unprocessable_entity
-        end
-      end
+      format.html{redirect_to @product}
+      format.js
+    end
+  end
+
+  def edit
+    respond_to do |format|
+      format.html{redirect_to @feedback.product}
+      format.js
     end
   end
 
@@ -34,10 +43,12 @@ class FeedbacksController < ApplicationController
   end
 
   def destroy
-    @feedback.destroy
-    respond_to do |format|
-      format.html{redirect_to @feedback.product}
-      format.json{head :no_content}
+    @product = @feedback.product
+    if @feedback.destroy
+      respond_to do |format|
+        format.html{redirect_to @feedback.product}
+        format.js
+      end
     end
   end
 

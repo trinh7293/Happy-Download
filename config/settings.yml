@@ -1,3 +1,5 @@
 rate:
   quality: quality
   star_number: 5
+feedback:
+  maximum_length: 140

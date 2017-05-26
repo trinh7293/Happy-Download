@@ -1,6 +1,6 @@
 class ManageProductsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @products = current_user.products
+    @products = current_user.products.paginate page: params[:page]
   end
 end
