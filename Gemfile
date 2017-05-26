@@ -20,6 +20,8 @@ gem "faker", "1.6.6"
 gem "paperclip"
 gem "ratyrate"
 gem "config"
+gem "aws-sdk", "~> 2.3"
+gem "figaro"
 group :development, :test do
   gem "byebug", platform: :mri
 end
