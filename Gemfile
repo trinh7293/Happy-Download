@@ -22,6 +22,7 @@ gem "ratyrate"
 gem "config"
 gem "aws-sdk", "~> 2.3"
 gem "figaro"
+gem "will_paginate"
 group :development, :test do
   gem "byebug", platform: :mri
 end

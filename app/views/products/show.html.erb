@@ -16,7 +16,9 @@
     <% if user_product %>
       <p><%= link_to t("edit"), edit_product_path(@product) %></p>
     <% else %>
-      <p><%= link_to t("buy_now"), "#" %></p>
+      <p>
+        <%= link_to t("buy_now"), new_product_order_detail_path(@product) %>
+      </p>
     <% end %>
     <table>
       <thead>
