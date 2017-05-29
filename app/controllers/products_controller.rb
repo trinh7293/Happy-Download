@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @products = Product.all
+    @products = Product.paginate page: params[:page]
   end
 
   def new
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @addfeedback = current_user.feedbacks.build
+    @feedback = current_user.feedbacks.new
   end
 
   def edit

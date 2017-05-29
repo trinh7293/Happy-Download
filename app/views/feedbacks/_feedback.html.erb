@@ -1,8 +1,12 @@
 <tr>
-  <td><%= feedback.user.name %></td>
+  <td><%= feedback.user.name %> : </td>
+</tr>
+<tr id = "feedback-<%= feedback.id %>" >
   <td><%= feedback.content %></td>
   <% if user_feedback feedback %>
-    <td><%= link_to t("delete"), feedback,
-      method: :delete, data: {confirm: t("sure")} %></td>
+    <td><%= link_to t(".delete"), feedback,
+      method: :delete, remote: :true, data: {confirm: t("sure")} %></td>
+    <td><%= link_to t(".edit"), feedback,
+      method: :get, remote: :true %></td>
   <% end %>
 </tr>

@@ -1,4 +1,5 @@
-<%= form_for addfeedback, remote: true do |f| %>
+<%= form_for feedback, remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: t(".new_feedback") %>
   </div>
