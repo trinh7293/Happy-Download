@@ -29,7 +29,9 @@ en:
   quality: "Quality Rating"
   back: "Back"
   sure: "Are you sure"
-  hello: "Hello world"
+  noscript: "Thank you for choosing HappyDownload. Unfortunately, we do not
+    support this function without javascript. Please turn on it or use
+    altenative browsers."
   static_pages:
     about:
       title: "About page"
@@ -82,8 +84,11 @@ en:
     notification:
       in_your_product: " in your product "
       has: " has "
-number:
-  currency:
-    format:
-      unit: "$"
-      format: "%n%u"
+  number:
+    currency:
+      format:
+        unit: "$"
+        format: "%n%u"
+  order_details:
+    form:
+      submit: "Submit"

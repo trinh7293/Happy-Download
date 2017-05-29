@@ -1,5 +1,10 @@
 <%= form_for product, html: {multipart: true} do |f| %>
   <%= render "shared/error_messages", object: f.object %>
+  <div class="stripe-error alert alert-danger" style="display:none">
+    <noscript>
+      <%= t "noscript" %>
+    </noscript>
+  </div>
 
   <%= f.label :title, t(".title") %>
   <%= f.text_field :title, class: "form-control" %>
@@ -24,6 +29,18 @@
 
   <%= f.label :category_id %>
   <%= f.collection_select(:category_id, categories, :id, :name) %>
+
+  <% if current_user.recipient.blank? %>
+    <%= label_tag :country %>
+    <%= text_field_tag :country, nil, {name: nil,
+      "data-stripe": "country"} %>
+    <%= label_tag :routing_number %>
+    <%= text_field_tag :routing_number, nil, {name: nil,
+      "data-stripe": "routingNumber"} %>
+    <%= label_tag :account_number %>
+    <%= text_field_tag :account_number, nil, {name: nil,
+      "data-stripe": "accountNumber"} %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
