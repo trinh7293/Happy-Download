@@ -24,6 +24,7 @@ gem "aws-sdk", "~> 2.3"
 gem "figaro"
 gem "will_paginate"
 gem "bootstrap-will_paginate", "0.0.10"
+gem "stripe"
 group :development, :test do
   gem "byebug", platform: :mri
 end

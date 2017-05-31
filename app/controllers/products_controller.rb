@@ -13,14 +13,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.build product_params
-    respond_to do |format|
-      if @product.save
-        format.html{redirect_to @product, notice: t(".success")}
-        format.json{render :show, status: :created, location: @product}
-      else
-        format.html{render :new}
-        format.json{render json: @product.errors, status: :unprocessable_entity}
-      end
+    create_recipient_user if current_user.recipient.blank?
+    if @product.save
+      redirect_to @product, notice: t(".success")
+    else
+      render :new
     end
   end
 
@@ -67,5 +64,16 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit :category_id, :title, :summary, :content,
       :price, :image_product, :item
+  end
+
+  def create_recipient_user
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    token = params[:stripeToken]
+    recipient = Stripe::Account.create(
+      type: "custom",
+      bank_account: token
+    )
+    current_user.recipient = recipient.id
+    current_user.save
   end
 end
