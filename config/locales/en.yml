@@ -34,6 +34,11 @@ en:
     about:
       title: "About page"
       content: "This is about page"
+    manage_product:
+      sure: "Are you sure"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
   layouts:
     header:
       home: "Home"
@@ -73,6 +78,10 @@ en:
       new_feedback: "New feedback"
     update:
       feedback_updated_success: "Feedback updated success"
+  notifications:
+    notification:
+      in_your_product: " in your product "
+      has: " has "
 number:
   currency:
     format:
