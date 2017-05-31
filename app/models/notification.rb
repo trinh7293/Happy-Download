@@ -1,4 +1,6 @@
 class Notification < ApplicationRecord
-  belongs_to :notifier, class_name: User.name, foreign_key: "notifier_id"
-  belongs_to :notifiee, class_name: User.name, foreign_key: "notifiee_id"
+  belongs_to :notified_by, class_name: User.name
+  belongs_to :user
+  enum read: [:unread, :read]
+  enum checked: [:uncheck, :checked]
 end
