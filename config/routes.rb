@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root "products#index"
   get "/static_pages/*page", to: "static_pages#show"
-  get "/manage_product", to: "manage_products#index"
   devise_for :users, to: "users"
   resource :users do
+    resources :manage_products, only: :index
+    resources :wish_lists, only: :index
     resources :sales, only: :index
     resources :purchases, only: :index
   end
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   end
   resources :feedbacks
   resources :notifications, only: [:show,:index,:update]
+  resources :wish_lists, only: [:create, :destroy]
 end

@@ -1,6 +1,6 @@
 module UsersHelper
-  def user_product
-    current_user == @product.user
+  def user_product product
+    current_user == product.user
   end
 
   def user_feedback feedback

@@ -11,8 +11,9 @@
       <%= t "quality" %><%= rating_for @product, Settings.rate.quality,
         star: Settings.rate.star_number, enable_half: true %></p>
     <p><%= number_to_currency @product.price %></p>
+    <%= render "wishlist_form", product: @product %>
     <p><%= @product.content %></p>
-    <% if user_product %>
+    <% if user_product @product %>
       <p><%= link_to t("edit"), edit_product_path(@product) %></p>
     <% else %>
       <p>

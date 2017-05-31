@@ -4,7 +4,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), root_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to t(".manage_products"), manage_product_path %></li>
+          <li><%= link_to t(".manage_products"), users_manage_products_path %></li>
+          <li><%= link_to t(".wish_list"), users_wish_lists_path %></li>
           <li><%= link_to t(".my_sales"), users_sales_path %></li>
           <li><%= link_to t(".my_purchases"), users_purchases_path %></li>
           <li class="dropdown notification-dropdown">
