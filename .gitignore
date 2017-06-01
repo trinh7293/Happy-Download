@@ -23,9 +23,11 @@ config/database.yml
 config/secrets.yml
 /test/
 /public/system/**
+/public/javascripts/**
 /vendor/
 /.framgia-ci-reports/
-
+app/assets/javascripts/i18n/
+app/assets/javascripts/highcharts.js
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml

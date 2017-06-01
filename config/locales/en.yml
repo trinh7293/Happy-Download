@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  happy_download: "Happy Download"
+  userstats: "User stats"
+  your_sales: "Your sales"
+  your_purchases: "Your Purchases"
   show: "Show"
   edit: "Edit"
   delete: "Delete"
