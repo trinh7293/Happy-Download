@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
   has_one :profile, dependent: :destroy
   has_many :wish_lists, dependent: :destroy
+  has_many :wish_products, through: :wish_lists, source: :product
   has_many :feedbacks, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -17,4 +18,8 @@ class User < ApplicationRecord
   has_many :purchases, class_name: OrderDetail.name, foreign_key: "buyer_id"
 
   has_many :notifications, dependent: :destroy
+
+  def wish? product
+    wish_products.include? product
+  end
 end

@@ -66,6 +66,10 @@ en:
       new_feedback: "New feedback"
     show:
       product_price: "$"
+    wish:
+      add_to_wish_list: "Add to wish list"
+    remove_wish:
+      remove_from_wish_list: "Remove from wish list"
   manage_products:
     index:
       title: "My products"

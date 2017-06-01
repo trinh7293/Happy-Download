@@ -1,0 +1,16 @@
+<tr>
+  <td><%= image_tag(product.image_product.url(:thumb)) %></td>
+  <td><%= product.title %></td>
+  <td><%= product.content %></td>
+  <td><%= number_to_currency(product.price) %></td>
+  <td>
+    <%= link_to t("show"), product %>
+    <% if user_product product %>
+      <%= link_to t("edit"), edit_product_path(product) %>
+      <%= link_to t("delete"), product,
+        method: :delete, data: {confirm: t("sure")}, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to t("buy_now"), new_product_order_detail_path(product) %>
+    <% end %>
+  </td>
+</tr>

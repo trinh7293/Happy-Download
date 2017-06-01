@@ -1,0 +1,7 @@
+<div id="wishlist-form">
+  <% if current_user.wish? product %>
+    <%= render "remove_wish" %>
+  <% else %>
+    <%= render "wish", product: product %>
+  <% end %>
+</div>
