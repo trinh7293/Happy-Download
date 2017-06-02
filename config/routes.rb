@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resource :users do
     resources :manage_products, only: :index
     resources :wish_lists, only: :index
-    resources :sales, only: :index
-    resources :purchases, only: :index
+    resources :commerces, only: :index
     resources :stats, only: :index
   end
   post "/rate", to: "rater#create", as: "rate"

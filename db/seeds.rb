@@ -31,6 +31,7 @@ users[1..5].each do |user|
       price = Faker::Commerce.price
       title = Faker::Music.instrument
       Product.create! user_id: user.id,
+        link_preview: "https://www.google.com",
         category_id: category.id,
         created_at: Time.zone.now,
         title: title,

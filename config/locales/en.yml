@@ -29,13 +29,17 @@ en:
   delete: "Delete"
   update: "Update"
   buy_now: "Buy now"
+  buy_in: "Buy in"
+  price: "Price ($)"
   post: "Post"
   quality: "Quality Rating"
   back: "Back"
   sure: "Are you sure"
+  error: "Error"
   noscript: "Thank you for choosing HappyDownload. Unfortunately, we do not
     support this function without javascript. Please turn on it or use
     altenative browsers."
+  link_preview: "Link Preview"
   static_pages:
     about:
       title: "About page"
@@ -66,6 +70,8 @@ en:
     edit:
       title: "Edit product"
       edit_product: "Edit product"
+    destroy:
+      success: "Product has successfully destroyed"
     feedback_form:
       new_feedback: "New feedback"
     show:
@@ -81,7 +87,6 @@ en:
       image: "Image"
       name: "Product name"
       content: "Content"
-      price: "Price"
       action: "Action"
   feedbacks:
     feedback_form:
@@ -100,3 +105,6 @@ en:
   order_details:
     form:
       submit: "Submit"
+    create:
+      order_save_success : "Congratulations ! You are
+        successfully buy the product !"

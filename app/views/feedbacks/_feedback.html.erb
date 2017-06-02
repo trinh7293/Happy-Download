@@ -4,9 +4,9 @@
 <tr id = "feedback-<%= feedback.id %>" >
   <td><%= feedback.content %></td>
   <% if user_feedback feedback %>
-    <td><%= link_to t(".delete"), feedback,
+    <td><%= link_to t(".delete"), feedback_path(feedback),
       method: :delete, remote: :true, data: {confirm: t("sure")} %></td>
-    <td><%= link_to t(".edit"), feedback,
+    <td><%= link_to t(".edit"), edit_feedback_path(feedback),
       method: :get, remote: :true %></td>
   <% end %>
 </tr>

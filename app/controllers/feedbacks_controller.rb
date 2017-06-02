@@ -5,7 +5,6 @@ class FeedbacksController < ApplicationController
   def show
     respond_to do |format|
       format.html{redirect_to @feedback.product}
-      format.js
     end
   end
 
@@ -36,12 +35,8 @@ class FeedbacksController < ApplicationController
         format.html do
           redirect_to @feedback, notice: t(".feedback_updated_success")
         end
-        format.json{render :show, status: :ok, location: @feedback}
       else
-        format.html{render :edit}
-        format.json do
-          render json: @feedback.errors, status: :unprocessable_entity
-        end
+        format.js
       end
     end
   end

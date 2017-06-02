@@ -5,15 +5,29 @@
   <tr>
     <th class="center"><%= t(".image")  %></th>
     <th class="center"><%= t(".title") %></th>
+    <th class="center"><%= t("link_preview") %></th>
     <th class="center"><%= t(".link_down") %></th>
-    <th class="center"><%= t(".Buy_from") %></th>
+    <% if @title == "sales" %>
+      <th class="center"><%= t(".customers") %></th>
+      <th class="center"><%= t("sell_in") %></th>
+    <% else %>
+      <th class="center"><%= t(".seller") %></th>
+      <th class="center"><%= t("buy_in") %></th>
+    <% end %>
   </tr>
   <% @order_details.each do |order_detail| %>
     <tr>
       <td><%= image_tag order_detail.product.image_product.url %></td>
       <td><%= order_detail.product.title %></td>
+      <td><%= order_detail.product.link_preview %></td>
       <td><%= link_to t(".download"),
         asset_url(order_detail.product.item.url) %></td>
+      <% if @title == "sales" %>
+        <td><%= order_detail.buyer.name %></td>
+      <% else %>
+        <td><%= order_detail.seller.name %></td>
+      <% end %>
+      <td><%= order_detail.created_at %></td>
     </tr>
   <% end %>
 </table>
