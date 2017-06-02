@@ -1,14 +1,10 @@
-  <%= link_to notifications_path, class: "dropdown-toggle", id: "noti-count",
-    data: {toggle: "dropdown"},
-    aria: {haspopup: "true", expanded: "false"}, remote: true do %>
-    <span class="fa fa-globe"></span>
-    <span class="badge badge-danger">
-      <%= number %>
-    </span>
-    <span class="caret"></span>
-  <% end %>
-  <% if user_signed_in? %>
-    <ul class="dropdown-menu dropdown-notification scrollable-menu" id="user-notifications">
-      <%= render current_user.notifications %>
-    </ul>
-  <% end %>
+<%= link_to notifications_path, class: "dropdown-toggle", id: "noti-number",
+  data: {toggle: "dropdown"},
+  aria: {haspopup: "true", expanded: "false"}, remote: true do %>
+  <%= render "layouts/number", number: number %>
+<% end %>
+<% if user_signed_in? %>
+  <ul class="dropdown-menu dropdown-notification scrollable-menu" id="user-notifications">
+    <%= render current_user.notifications.ordered %>
+  </ul>
+<% end %>

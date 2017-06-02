@@ -12,7 +12,12 @@ class OrderDetailsController < ApplicationController
     get_buyer_cash
     tranfer_cash_to_seller
     if @order_detail.save
-      redirect_to root_url, notice: t(".order_save_success")
+      NotificationService.new(action: @order_detail, notice_type: "buy",
+        current_user: current_user).create_notification
+      respond_to do |format|
+        format.html{redirect_to @product, notice: t(".order_save_success")}
+        format.js
+      end
     else
       render :new
     end
