@@ -1,3 +1,5 @@
 **/*{.,-}min.js
 **/application.js
 **/cable.js
+app/assets/javascripts/i18n/translations.js
+app/assets/javascripts/highcharts.js

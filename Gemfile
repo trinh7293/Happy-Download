@@ -25,6 +25,8 @@ gem "figaro"
 gem "will_paginate"
 gem "bootstrap-will_paginate", "0.0.10"
 gem "stripe"
+gem "i18n-js"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end

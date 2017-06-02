@@ -6,5 +6,6 @@ Bundler.require(*Rails.groups)
 
 module HappyDownload
   class Application < Rails::Application
+    config.middleware.use I18n::JS::Middleware
   end
 end

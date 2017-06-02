@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
-//= require ratyrate
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require jquery.raty
+//= require ratyrate
+//= require highcharts
+//= require_tree .
