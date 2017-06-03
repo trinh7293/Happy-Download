@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170609060301) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -34,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170609060301) do
     t.integer  "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -98,6 +116,7 @@ ActiveRecord::Schema.define(version: 20170609060301) do
     t.string   "item_content_type"
     t.integer  "item_file_size"
     t.datetime "item_updated_at"
+    t.string   "item_fingerprint"
     t.integer  "status",                     default: 1
     t.string   "item_fingerprint"
     t.index ["user_id", "created_at"], name: "index_products_on_user_id_and_created_at"
