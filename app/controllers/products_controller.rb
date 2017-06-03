@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @products = Product.paginate page: params[:page]
+    if params[:query].present?
+      @products = Product.search params[:query], suggest: true,
+        page: params[:page], per_page: Settings.paginate.per_page_search
+    else
+      @products = Product.paginate page: params[:page],
+        per_page: Settings.paginate.per_page_normal
+    end
   end
 
   def new

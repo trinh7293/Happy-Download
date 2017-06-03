@@ -1,6 +1,20 @@
 <h2><%= t ".title" %></h2>
 <p class="center"><%= t ".content" %></p>
 <p class="notice"><%= notice %></p>
+<div class="">
+  <%= form_tag root_path, method: :get, class: "form-inline",
+    enforce_utf8: false do %>
+    <%= text_field_tag "query", params[:query], class: "form-control",
+      id: "autocomplete", data: {goiy: Product.pluck(:title).uniq} %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+<div class="suggest">
+  <% if available_suggestion? %>
+    <span><%= t ".did_you_mean" %></span>
+    <%=  @products.suggestions[0] %>
+  <% end %>
+</div>
 <h1>
   <%= t ".all_products" %>
 </h1>
@@ -25,5 +39,5 @@
       </div>
     <% end %>
   </div>
-  <%= will_paginate %>
 </div>
+<%= will_paginate %>

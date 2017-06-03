@@ -7,12 +7,12 @@
           <li><%= link_to t(".manage_products"), users_manage_products_path %></li>
           <li><%= link_to t(".wish_list"), users_wish_lists_path %></li>
           <li>
-            <%= link_to users_commerces_path, title: :sales do %>
+            <%= link_to users_commerces_path title: :sales do %>
               <%= t(".my_sales") %>
             <% end %>
           </li>
           <li>
-            <%= link_to users_commerces_path, title: :purchases do %>
+            <%= link_to users_commerces_path title: :purchases do %>
               <%= t(".my_purchases") %>
             <% end %>
           </li>
