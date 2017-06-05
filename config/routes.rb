@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :feedbacks
   resources :notifications, only: [:show,:index,:update]
   resources :wish_lists, only: [:create, :destroy]
+
+  mount ActionCable.server, at: "/cable"
 end

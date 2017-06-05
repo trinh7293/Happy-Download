@@ -1,13 +1,17 @@
+
 class NotificationService
   def initialize params
-    @feedback = params[:feedback]
-    @current_user_id = params[:current_user_id]
+    @action = params[:action]
+    @notice_type = params[:notice_type]
+    @current_user = params[:current_user]
   end
 
   def create_notification
-    current_user = User.find_by id: @current_user_id
-    return if @feedback.product.user_id == current_user.id
-    @feedback.product.notifications.create! user_id: @feedback.product.user_id,
-      notified_by_id: @feedback.user_id, notice_type: "comment"
+    return if @action.product.user == @current_user
+    noti = @action.product.notifications
+      .create! user_id: @action.product.user_id,
+        notified_by_id: @current_user.id, notice_type: @notice_type
+    NotificationBroadcastJob.perform_later @action.product.user
+      .notifications.uncheck.count, noti
   end
 end

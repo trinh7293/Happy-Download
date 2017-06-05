@@ -3,4 +3,6 @@ class Notification < ApplicationRecord
   belongs_to :user
   enum read: [:unread, :read]
   enum checked: [:uncheck, :checked]
+
+  scope :ordered, (->{order created_at: :desc})
 end

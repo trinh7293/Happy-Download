@@ -12,8 +12,8 @@ class FeedbacksController < ApplicationController
     @product = Product.find_by id: params[:feedback][:product_id]
     @feedback = current_user.feedbacks.build feedback_params
     if @feedback.save
-      NotificationService.new(feedback: @feedback,
-        current_user_id: current_user.id).create_notification
+      NotificationService.new(action: @feedback, notice_type: "comment",
+        current_user: current_user).create_notification
       @feedback = current_user.feedbacks.new
     end
     respond_to do |format|
