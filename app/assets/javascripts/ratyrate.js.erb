@@ -60,4 +60,9 @@ $(document).on('turbolinks:load', function() {
       }
     });
   });
+   $(document).ready(function(){
+    $(".readonly-star .star").each(function() {
+      $(this).raty('set', {readOnly: true});
+    });
+  });
 });

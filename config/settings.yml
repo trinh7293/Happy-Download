@@ -3,3 +3,5 @@ rate:
   star_number: 5
 feedback:
   maximum_length: 140
+paginate:
+  per_page: 2

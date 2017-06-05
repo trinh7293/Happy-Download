@@ -1,6 +1,7 @@
 <tr>
   <td>
     <%= form_for feedback, remote: true do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
       <%= f.text_area :content %>
       <%= f.submit t("update"), class: "btn btn-primary" %>
     <% end %>

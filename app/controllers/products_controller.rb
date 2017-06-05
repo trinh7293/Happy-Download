@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html{redirect_to products_url, notice: t(".success")}
+      format.html{redirect_to :back, notice: t(".success")}
       format.json{head :no_content}
     end
   end
@@ -62,8 +62,8 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit :category_id, :title, :summary, :content,
-      :price, :image_product, :item
+    params.require(:product).permit :category_id, :title, :summary,
+      :link_preview, :content, :price, :image_product, :item
   end
 
   def create_recipient_user

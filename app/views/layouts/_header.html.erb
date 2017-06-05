@@ -6,8 +6,16 @@
         <% if user_signed_in? %>
           <li><%= link_to t(".manage_products"), users_manage_products_path %></li>
           <li><%= link_to t(".wish_list"), users_wish_lists_path %></li>
-          <li><%= link_to t(".my_sales"), users_sales_path %></li>
-          <li><%= link_to t(".my_purchases"), users_purchases_path %></li>
+          <li>
+            <%= link_to users_commerces_path, title: :sales do %>
+              <%= t(".my_sales") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_commerces_path, title: :purchases do %>
+              <%= t(".my_purchases") %>
+            <% end %>
+          </li>
           <li><%= link_to t(".stats"), users_stats_path %></li>
           <li class="dropdown notification-dropdown">
             <%= render "layouts/notifications" %>

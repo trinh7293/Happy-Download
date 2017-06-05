@@ -14,11 +14,11 @@ class Supports::Stat
   end
 
   def dt_sale current_user
-    (rp..Date.today).map{|date| sale_on date, current_user}.inspect
+    (rp.to_date..Date.today).map{|date| sale_on date, current_user}.inspect
   end
 
   def dt_order current_user
-    (rp..Date.today).map{|date| order_on date, current_user}.inspect
+    (rp.to_date..Date.today).map{|date| order_on date, current_user}.inspect
   end
 
   private
