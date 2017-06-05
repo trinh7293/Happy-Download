@@ -125,6 +125,14 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.3)
     docile (1.1.5)
+    elasticsearch (5.0.4)
+      elasticsearch-api (= 5.0.4)
+      elasticsearch-transport (= 5.0.4)
+    elasticsearch-api (5.0.4)
+      multi_json
+    elasticsearch-transport (5.0.4)
+      faraday
+      multi_json
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -138,6 +146,7 @@ GEM
     gherkin (4.1.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    hashie (3.5.5)
     i18n (0.8.1)
     i18n-js (3.0.0)
       i18n (~> 0.6, >= 0.6.6)
@@ -279,6 +288,10 @@ GEM
       rake (>= 0.9, < 13)
       sass (~> 3.4.20)
     scss_lint_reporter_checkstyle (0.2.0)
+    searchkick (2.3.0)
+      activemodel (>= 4.1)
+      elasticsearch (>= 1)
+      hashie
     sexp_processor (4.9.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
@@ -368,6 +381,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   scss_lint
   scss_lint_reporter_checkstyle
+  searchkick
   shoulda-matchers (~> 3.0)
   simplecov
   spring

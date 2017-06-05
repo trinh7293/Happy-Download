@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  searchkick
   ratyrate_rater
 
   devise :database_authenticatable, :registerable,

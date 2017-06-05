@@ -5,3 +5,5 @@ feedback:
   maximum_length: 140
 paginate:
   per_page: 2
+  per_page_search: 10
+  per_page_normal: 20
