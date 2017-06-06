@@ -5,10 +5,10 @@ class ProductsController < ApplicationController
 
   def index
     if params[:query].present?
-      @products = Product.search params[:query], suggest: true,
+      @products = Product.active.search params[:query], suggest: true,
         page: params[:page], per_page: Settings.paginate.per_page_search
     else
-      @products = Product.paginate page: params[:page],
+      @products = Product.active.paginate page: params[:page],
         per_page: Settings.paginate.per_page_normal
     end
   end
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    @product.deactive!
     respond_to do |format|
       format.html{redirect_to :back, notice: t(".success")}
       format.json{head :no_content}

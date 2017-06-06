@@ -75,6 +75,7 @@ en:
     feedback_form:
       new_feedback: "New feedback"
     show:
+      product_no_longer_exists: "Product is no longer exist"
       product_price: "$"
     wish:
       add_to_wish_list: "Add to wish list"
