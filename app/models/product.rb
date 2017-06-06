@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   searchkick suggest: [:title], special_characters: false
 
+  enum status: [:deactive, :active]
+
   belongs_to :user
   belongs_to :category
 

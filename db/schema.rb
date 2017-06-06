@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530035026) do
+ActiveRecord::Schema.define(version: 20170606011336) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20170530035026) do
     t.text     "content"
     t.decimal  "price"
     t.string   "image_product"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "image_product_file_name"
     t.string   "image_product_content_type"
     t.integer  "image_product_file_size"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170530035026) do
     t.string   "item_content_type"
     t.integer  "item_file_size"
     t.datetime "item_updated_at"
+    t.integer  "status",                     default: 1
     t.index ["user_id", "created_at"], name: "index_products_on_user_id_and_created_at"
   end
 

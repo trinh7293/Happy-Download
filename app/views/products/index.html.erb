@@ -29,9 +29,10 @@
             <p><%= number_to_currency product.price %></p>
             <p><%= t "quality" %></p>
             <div class="readonly-star">
-              <p><%= rating_for product, Settings.rate.quality,
-                star: Settings.rate.star_number,readOnly: true,
-                enable_half: true %></p>
+              <p>
+                <%= rating_for product, Settings.rate.quality,
+                  star: Settings.rate.star_number,readOnly: true,
+                  enable_half: true %></p>
             </div>
             <p><%= t ".created_by " "#{product.user.name}" %></p>
           </div>
