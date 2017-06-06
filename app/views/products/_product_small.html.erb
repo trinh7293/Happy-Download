@@ -1,0 +1,21 @@
+<div class="thumbnail">
+  <%= link_to image_tag(product.image_product.url), product_path(product) %>
+  <div class="caption">
+    <h4 class="pull-right"><%= number_to_currency product.price %></h4>
+    <h4>
+      <a href="#"><%= product.title %></a>
+    </h4>
+    <p><%= t "quality" %></p>
+    <p><%= product.category.name %></p>
+  </div>
+  <div class="ratings">
+    <p class="pull-right"><%= product.rates("quality").count %> <%= t "rating" %></p>
+    <div class="readonly-star">
+      <p>
+        <%= rating_for product, Settings.rate.quality,
+          star: Settings.rate.star_number,
+          enable_half: true %>
+      </p>
+    </div>
+  </div>
+</div>

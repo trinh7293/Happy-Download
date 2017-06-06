@@ -3,3 +3,31 @@
   data-datasale = "<%= @supports.dt_sale current_user %>"
   data-datapurcharse = "<%= @supports.dt_order current_user %>">
 </div>
+
+<div class="col-md-4">
+  <h2><%= t ".best_seller" %></h2>
+  <div class="list-group">
+    <% @supports.best_seller_user.each do |user| %>
+      <%= link_to user.name, "#", class: "list-group-item" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <h2><%= t ".amount" %></h2>
+  <div class="list-group">
+    <% @supports.best_seller_amount.each do |total| %>
+      <%= link_to t("products.show.product_price", price: total) ,
+        "#", class: "list-group-item" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <h2><%= t ".best_product" %></h2>
+  <div class="list-group">
+    <% @supports.most_purchase_products.each do |product| %>
+      <%= link_to product.title, "#", class: "list-group-item" %>
+    <% end %>
+  </div>
+</div>

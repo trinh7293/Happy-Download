@@ -1,5 +1,9 @@
 class Product < ApplicationRecord
+  validates :item_fingerprint, uniqueness: true
   searchkick suggest: [:title], special_characters: false
+
+  scope :category, (->id{where category_id: id if id.present?})
+  scope :ordered, (->{order created_at: :desc})
 
   enum status: [:deactive, :active]
 
@@ -16,7 +20,8 @@ class Product < ApplicationRecord
 
   has_attached_file :item
   validates_attachment_content_type :item,
-    content_type: "application/zip"
+    content_type: "application/zip",
+    adapter_options: {hash_digest: Digest::SHA256}
 
   has_attached_file :image_product, styles: {medium: "300x300>",
     thumb: "100x100>"}, default_url: "default.png", use_timestamp: "false",

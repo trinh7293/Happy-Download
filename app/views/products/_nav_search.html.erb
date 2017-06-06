@@ -1,0 +1,27 @@
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <% categories.each do |cat| %>
+        <li class="<%= 'category' if params[:id]== cat.id.to_s %>">
+          <%= link_to root_path id: cat.id.to_i do %>
+            <%= cat.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+      <%= form_tag root_path, method: :get, class: "navbar-form navbar-left",
+        enforce_utf8: false do %>
+        <div class="form-group">
+          <%= text_field_tag "query", params[:query], class: "form-control",
+            id: "autocomplete", data: {goiy: Product.pluck(:title).uniq} %>
+        </div>
+        <%= button_tag t("search"), class: "btn-search btn btn-primary" %>
+      <% end %>
+    <div class="suggest">
+      <% if available_suggestion? %>
+        <span><%= t ".did_you_mean" %></span>
+        <%= products.suggestions[0] %>
+      <% end %>
+    </div>
+  </div>
+</nav>
