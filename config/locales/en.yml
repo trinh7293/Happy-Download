@@ -32,6 +32,7 @@ en:
   buy_in: "Buy in"
   price: "Price ($)"
   post: "Post"
+  rating: "Rating"
   quality: "Quality Rating"
   back: "Back"
   sure: "Are you sure"
@@ -76,7 +77,7 @@ en:
       new_feedback: "New feedback"
     show:
       product_no_longer_exists: "Product is no longer exist"
-      product_price: "$"
+      product_price: "$%{price}"
     wish:
       add_to_wish_list: "Add to wish list"
     remove_wish:

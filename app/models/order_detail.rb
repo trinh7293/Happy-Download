@@ -18,8 +18,7 @@ class OrderDetail < ApplicationRecord
     end
 
     def best_seller_order
-      self.group(:seller_id)
-        .ordered_by_sum.first Settings.category.nav_number
+      self.group(:seller_id).ordered_by_sum.first Settings.category.nav_number
     end
 
     def best_seller_user
