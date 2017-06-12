@@ -6,12 +6,15 @@
 $gray-medium-light: #eaeaea;
 $red: #f00;
 $white: #fff;
+$black: #000;
 $noti-not-read: #e9ebee;
 $noti-not-read-hover: #f6f7f9;
+$gray-body: #e9ebee;
 
 // universal
 
 body {
+  background-color: $gray-body;
   padding-top: 60px;
 }
 
@@ -129,5 +132,35 @@ input {
 }
 
 .highcharts-credits {
+  display: none;
+}
+
+//search
+.btn-search {
+  margin-top: -15px;
+}
+
+// slide-header
+.slide-header {
+  height: 300px;
+
+  img {
+    width: 100%;
+  }
+
+  .slide-item {
+    height: 100%;
+  }
+}
+
+.category {
+  background-color: $white;
+
+  a {
+    color: $black !important;
+  }
+}
+
+.raty-cancel {
   display: none;
 }
