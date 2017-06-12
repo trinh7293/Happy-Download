@@ -1,8 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>
+      <div class="navbar-header">
+        <%= link_to t(".happy_download"), root_path, class: "navbar-brand" %>
+      </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(".home"), root_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to t(".manage_products"), users_manage_products_path %></li>
           <li><%= link_to t(".wish_list"), users_wish_lists_path %></li>

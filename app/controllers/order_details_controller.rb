@@ -24,19 +24,13 @@ class OrderDetailsController < ApplicationController
   end
 
   private
-  def order_detail_params
-    params.require(:order_detail).permit :note, :product_id,
-      :seller_id, :buyer_id
-  end
-
   def get_buyer_cash
     Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
     begin
       Stripe::Charge.create(
         amount: (@product.price * 100).floor,
         currency: "usd",
-        source: token
+        customer: (Stripe::Customer.create source: params[:stripeToken])
       )
     rescue Stripe::CardError => error
       flash[:danger] = error.message
@@ -49,5 +43,10 @@ class OrderDetailsController < ApplicationController
       currency: "usd",
       destination: @product.user.recipient
     )
+  end
+
+  def order_detail_params
+    params.require(:order_detail).permit :note, :product_id,
+      :seller_id, :buyer_id
   end
 end

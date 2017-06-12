@@ -1,16 +1,20 @@
 class ProductsController < ApplicationController
   before_action :find_product, except: [:index, :create, :new]
-  before_action :categories, only: [:new, :edit]
+  before_action :categories, only: [:new, :edit, :create]
   before_action :authenticate_user!, except: :index
 
   def index
-    if params[:query].present?
-      @products = Product.active.search params[:query], suggest: true,
-        page: params[:page], per_page: Settings.paginate.per_page_search
-    else
-      @products = Product.active.paginate page: params[:page],
-        per_page: Settings.paginate.per_page_normal
-    end
+    @categories = Category.all
+    category_id = params[:id]
+    @products =
+      if params[:query]
+        Product.category(category_id).active.search params[:query],
+          suggest: true, page: params[:page],
+          per_page: Settings.paginate.per_page_search
+      else
+        Product.category(category_id).active.paginate page: params[:page],
+          per_page: Settings.paginate.per_page_search
+      end
   end
 
   def new

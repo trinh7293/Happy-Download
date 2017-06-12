@@ -21,12 +21,24 @@ class Supports::Stat
     (rp.to_date..Date.today).map{|date| order_on date, current_user}.inspect
   end
 
+  def best_seller_user
+    OrderDetail.best_seller_user
+  end
+
+  def best_seller_amount
+    OrderDetail.best_seller_amount
+  end
+
+  def most_purchase_products
+    OrderDetail.most_purchase_products
+  end
+
   private
   def sale_on date, current_user
-    current_user.sales.cash_on(date).sum :price
+    current_user.sales.cash_on(date).sum(:price).to_f
   end
 
   def order_on date, current_user
-    current_user.purchases.cash_on(date).sum :price
+    current_user.purchases.cash_on(date).sum(:price).to_f
   end
 end
