@@ -17,9 +17,16 @@ $(document).on('turbolinks:load', function() {
 
       yAxis: {
         title: {
-          text: I18n.t('your_items')
+          text: I18n.t('comsume')
         }
       },
+
+      xAxis: {
+        title: {
+          text: I18n.t('day')
+        }
+      },
+
       legend: {
         layout: 'vertical',
         align: 'right',
