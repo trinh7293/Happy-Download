@@ -15,15 +15,23 @@
           disable_after_rate: false %></p>
       <p><%= number_to_currency @product.price %></p>
       <p><%= t "seller" %><%= @product.user.name %></p>
-      <%= render "wishlist_form", product: @product %>
+      <%= render "wishlist_form", product: @product, class: "wishlist-input"%>
       <p><%= @product.content %></p>
-      <% if user_product @product %>
-        <p><%= link_to t("edit"), edit_product_path(@product) %></p>
-      <% else %>
-        <p>
-          <%= link_to t("buy_now"), new_product_order_detail_path(@product) %>
-        </p>
-      <% end %>
+      <p><%= t "message_to" %>
+      <%= link_to @product.user.email[0..5], chat_index_path %></p>
+
+
+      <div class="buy-button">
+        <% if user_product @product %>
+          <p><%= link_to t("edit"), edit_product_path(@product),
+              class: "btn btn-primary" %></p>
+        <% else %>
+          <p>
+            <%= link_to t("buy_now"), new_product_order_detail_path(@product),
+              class: "btn btn-primary" %>
+          </p>
+        <% end %>
+      </div>
       <table class="div-create">
         <thead>
           <tr>

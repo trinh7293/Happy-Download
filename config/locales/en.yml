@@ -41,6 +41,11 @@ en:
     support this function without javascript. Please turn on it or use
     altenative browsers."
   link_preview: "Link Preview"
+  comsume: "Your Consume ($)"
+  day: "Days from 3 weeks ago"
+  seller: "Seller: "
+  comment: "Comments"
+  new_comment: "New comment"
   static_pages:
     about:
       title: "About page"
@@ -71,6 +76,8 @@ en:
     edit:
       title: "Edit product"
       edit_product: "Edit product"
+    update:
+      success: "Product updated"
     destroy:
       success: "Product has successfully destroyed"
     feedback_form:

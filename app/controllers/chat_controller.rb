@@ -1,7 +1,7 @@
 class ChatController < ApplicationController
   def index
     session[:conversations] ||= []
-    @users = User.all - [Array.new << current_user]
+    @users = User.where.not(id: current_user)
     @conversations = Conversation.includes(:recipient, :messages)
       .find session[:conversations]
   end

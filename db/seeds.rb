@@ -27,11 +27,12 @@ end
 puts "4. Product"
 users = User.all
 categories = Category.all
-users[1..5].each do |user|
+3.times do
   categories[0..4].each do |category|
-    5.times do
+    users[1..2].each do |user|
       price = Faker::Commerce.price
-      title = Faker::Music.instrument
+      title = Faker::App.name
+      puts title
       Product.create! user_id: user.id,
         link_preview: "https://www.google.com",
         category_id: category.id,

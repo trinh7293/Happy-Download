@@ -26,11 +26,13 @@ class OrderDetailsController < ApplicationController
   private
   def get_buyer_cash
     Stripe.api_key = ENV["STRIPE_API_KEY"]
+    token = params[:stripeToken]
     begin
       Stripe::Charge.create(
         amount: (@product.price * 100).floor,
         currency: "usd",
-        customer: (Stripe::Customer.create source: params[:stripeToken])
+        #customer: (Stripe::Customer.create source: params[:stripeToken])
+        source: token
       )
     rescue Stripe::CardError => error
       flash[:danger] = error.message

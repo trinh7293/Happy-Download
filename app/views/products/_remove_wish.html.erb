@@ -1,3 +1,6 @@
 <%= form_for remove_wish, html: {method: :delete}, remote: true do |f| %>
-  <%= f.submit t(".remove_from_wish_list"), class: "btn" %>
+    <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+      <%= t ".remove_wish_list" %>
+      <span class="glyphicon glyphicon-minus-sign"></span>
+  <% end %>
 <% end %>

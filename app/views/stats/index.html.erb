@@ -23,7 +23,7 @@
         .zip(@supports.best_seller_amount).each do |user, amount| %>
         <tr>
           <td>
-            <%= link_to user.name, "#", class: "list-group-item" %>
+            <%= link_to user.email[0..5], "#", class: "list-group-item" %>
           </td>
           <td>
             <%= link_to t("products.show.product_price", price: amount) ,

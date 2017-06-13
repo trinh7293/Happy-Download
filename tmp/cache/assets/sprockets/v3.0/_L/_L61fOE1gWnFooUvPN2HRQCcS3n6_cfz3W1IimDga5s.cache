@@ -1,0 +1,29 @@
+I"S(function() {
+  var product;
+
+  jQuery(function() {
+    Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+    return product.setupForm();
+  });
+
+  product = {
+    setupForm: function() {
+      return $('#new_product').submit(function() {
+        $('input[type=submit]').attr('disabled', true);
+        Stripe.bankAccount.createToken($('#new_product'), product.handleStripeResponse);
+        return false;
+      });
+    },
+    handleStripeResponse: function(status, response) {
+      if (status === 200) {
+        $('#new_product').append($('<input type="hidden" name="stripeToken" />').val(response.id));
+        return $('#new_product')[0].submit();
+      } else {
+        $('.stripe-error').text(response.error.message).show();
+        return $('input[type=submit]').attr('disabled', false);
+      }
+    }
+  };
+
+}).call(this);
+:ET
