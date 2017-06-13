@@ -10,15 +10,20 @@ class OrderDetail < ApplicationRecord
   class << self
     def most_purchase_order_details
       self.group(:product_id).order("count(product_id) DESC")
-        .first Settings.category.nav_number
+        .first Settings.stat.top_number
     end
 
     def most_purchase_products
       self.most_purchase_order_details.map &:product
     end
 
+    def most_purchase_products_amount
+      self.most_purchase_products
+        .map{|product| product.order_details.count("product_id")}
+    end
+
     def best_seller_order
-      self.group(:seller_id).ordered_by_sum.first Settings.category.nav_number
+      self.group(:seller_id).ordered_by_sum.first Settings.stat.top_number
     end
 
     def best_seller_user

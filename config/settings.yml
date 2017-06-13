@@ -9,3 +9,5 @@ paginate:
   per_page_normal: 20
 category:
   nav_number: 5
+stat:
+  top_number: 5

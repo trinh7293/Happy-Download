@@ -47,6 +47,6 @@ class OrderDetailsController < ApplicationController
 
   def order_detail_params
     params.require(:order_detail).permit :note, :product_id,
-      :seller_id, :buyer_id
+      :seller_id, :buyer_id, :price
   end
 end

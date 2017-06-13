@@ -20,10 +20,11 @@ $chat-bg: #c5ddeb;
 $chat-list: #444753;
 $coral: #ff7f50;
 $lightcoral: #f08080;
+$buy-button: #39c;
+$home-button-hover: #fe9126;
 // universal
 
 body {
-  background-color: $gray-body;
   padding-top: 60px;
 }
 
@@ -151,9 +152,10 @@ input {
 
 // slide-header
 .slide-header {
-  height: 300px;
+  height: 250px;
 
   img {
+    height: 250px !important;
     width: 100%;
   }
 
@@ -230,4 +232,48 @@ input {
 
 .suggest em {
   color: $coral;
+}
+
+.readonly-star {
+  margin-top: -20px;
+}
+
+.product-container {
+  height: auto;
+  padding-bottom: 23px;
+}
+
+.buy-button button {
+  background-color: $buy-button;
+  padding: 7px 21px;
+
+  a {
+    color: $white;
+  }
+}
+
+.product-container {
+
+  button {
+    transition: background-color .2s;
+  }
+
+  &:hover button {
+    background-color: $home-button-hover;
+  }
+}
+
+.buy-show button {
+  background-color: $home-button-hover;
+}
+
+.image-product img {
+  height: 255px !important;
+  width: 300px;
+}
+
+.stat-table {
+  th {
+    text-align: center;
+  }
 }
