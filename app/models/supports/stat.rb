@@ -33,6 +33,10 @@ class Supports::Stat
     OrderDetail.most_purchase_products
   end
 
+  def most_purchase_products_amount
+    OrderDetail.most_purchase_products_amount
+  end
+
   private
   def sale_on date, current_user
     current_user.sales.cash_on(date).sum(:price).to_f

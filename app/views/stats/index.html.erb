@@ -3,31 +3,64 @@
   data-datasale = "<%= @supports.dt_sale current_user %>"
   data-datapurcharse = "<%= @supports.dt_order current_user %>">
 </div>
-
-<div class="col-md-4">
-  <h2><%= t ".best_seller" %></h2>
-  <div class="list-group">
-    <% @supports.best_seller_user.each do |user| %>
-      <%= link_to user.name, "#", class: "list-group-item" %>
-    <% end %>
+<div class="stat-table center">
+  <div class="col-md-6">
+    <h2><%= t ".best_seller" %></h2>
+    <table>
+      <tr>
+        <th width="40%">
+          <div class="list-group-item">
+            <%= t(".seller")%>
+          </div>
+        </th>
+        <th width="40%">
+          <div class="list-group-item">
+            <%= t(".amount")%>
+          </div>
+        </th>
+      </tr>
+      <% (@supports.best_seller_user)
+        .zip(@supports.best_seller_amount).each do |user, amount| %>
+        <tr>
+          <td>
+            <%= link_to user.name, "#", class: "list-group-item" %>
+          </td>
+          <td>
+            <%= link_to t("products.show.product_price", price: amount) ,
+              "#", class: "list-group-item" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
-</div>
 
-<div class="col-md-4">
-  <h2><%= t ".amount" %></h2>
-  <div class="list-group">
-    <% @supports.best_seller_amount.each do |total| %>
-      <%= link_to t("products.show.product_price", price: total) ,
-        "#", class: "list-group-item" %>
-    <% end %>
-  </div>
-</div>
-
-<div class="col-md-4">
-  <h2><%= t ".best_product" %></h2>
-  <div class="list-group">
-    <% @supports.most_purchase_products.each do |product| %>
-      <%= link_to product.title, "#", class: "list-group-item" %>
-    <% end %>
+  <div class="col-md-6">
+    <h2><%= t ".best_product" %></h2>
+    <table width="100%">
+      <tr>
+        <th width="60%">
+          <div class="list-group-item">
+            <%= t("product")%>
+          </div>
+        </th>
+        <th width="40%">
+          <div class="list-group-item">
+            <%= t(".times")%>
+          </div>
+        </th>
+      </tr>
+      <% (@supports.most_purchase_products)
+        .zip(@supports.most_purchase_products_amount)
+        .each do |product, amount| %>
+        <tr>
+          <td>
+            <%= link_to product.title, "#", class: "list-group-item" %>
+          </td>
+          <td>
+            <%= link_to amount, "#", class: "list-group-item" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
